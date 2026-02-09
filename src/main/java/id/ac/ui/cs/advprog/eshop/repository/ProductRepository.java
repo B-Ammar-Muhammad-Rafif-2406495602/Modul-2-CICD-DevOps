@@ -38,4 +38,13 @@ public class ProductRepository{
             }
         }
     }
+
+    public Product update(Product product) {
+        Product existingProduct = findByID(product.getProductId());
+        if (existingProduct != null) {
+            existingProduct.setProductName(product.getProductName());
+            existingProduct.setProductQuantity(product.getProductQuantity());
+        }
+        return existingProduct;
+    }
 }
