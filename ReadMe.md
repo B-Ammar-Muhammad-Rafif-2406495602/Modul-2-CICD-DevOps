@@ -20,3 +20,14 @@ dalam modul di state bahwa kita jangan sampe return null
 ruang improvement yang saya temukan, nanti kedepannya mungkin bisa menggunakan Optional.empty() untuk menggantikan return null
 
 # Refleksi 2
+1. setelah membuat unit test saya awalnya saya merasa bahwa cukup beberpa saja yang perlu kita implementasikan dalam membuat unit test, namun jika kita berlandaskan melalui code coverage cukup banyak hal yang perlu kita uji dalam membuat unit test, namun hal ini tentu tidak menjadikan kode kita mempunyai bug atau error bisa jadi terdapat beberapa logika yang kita dapat miss tapi tidak tercover dalam unit test karena dari kodenya sudah salah
+2. menurut saya terkait cleanliness of the code pada functional test yang baru akan terdapat beberapa kode yang munklin terduplikasi karena hampir isinya sama, 
+kemudian kita juga bisa jadi hanya memiliki sedikit helper method yang bisa di reuse, untuk maintenancenya pun akan susah karena bisa jadi developer baru akan kebingungan karena kesulitan dalam memahami tujuan dari test yang sebenarnya karena banyak yang duplikat. hal ini akhirnya tentu dapat mengurangi kualitas kodenya karena tidak sepenuhnya memenuhi prinsip clean code. 
+
+supaya hal tersebut dapat kita hindari kita bisa menggunakan beberapa cara berikut
+1. menghilangkan setup yang sama dengan base test class
+2. membuat konfigurasinya menjadi centralized
+3. helper utilities
+
+3 hal ini dapat membuat yang awalnya bisa jadi sulit untuk di maintain dan not clean menjadi bersih, mudah dibaca, serta mudah untuk di maintain
+
