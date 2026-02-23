@@ -2,6 +2,8 @@ FROM docker.io/library/eclipse-temurin:21-jdk-alpine AS builder
 
 WORKDIR /src/advshop
 COPY . .
+
+RUN chmod +x ./gradlew
 RUN ./gradlew clean bootJar
 
 FROM docker.io/library/eclipse-temurin:21-jre-alpine AS runner
@@ -20,4 +22,5 @@ COPY --from=builder --chown=${USER_UID}:${USER_GID} /src/advshop/build/libs/*.ja
 EXPOSE 8080
 
 ENTRYPOINT ["java"]
-CMD ["-jar", "app.jar"]
+
+CMD ["-Xmx256m", "-jar", "app.jar"]
