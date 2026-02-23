@@ -16,4 +16,5 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Run PMD via Gradle
-        run: ./gradlew pmdMain pmdTest
+        run: chmod +x gradlew
+          ./gradlew pmdMain pmdTest
